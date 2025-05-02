@@ -38,6 +38,7 @@ stages:
             inputs:
               versionSpec: $(java_version)
               jdkArchitectureOption: x64
+              jdkSourceOption: PreInstalled
             displayName: 'Install Java'
 
           - script: |
@@ -46,11 +47,11 @@ stages:
             displayName: 'Build Backend'
 
   - stage: Test
-    dependsOn: Build
     displayName: Test Stage
+    dependsOn: Build
     jobs:
       - job: TestJob
-        displayName: Run Tests
+        displayName: Run Frontend and Backend Tests
         steps:
           - checkout: self
 
@@ -60,17 +61,24 @@ stages:
               npm test
             displayName: 'Test Frontend'
 
+          - task: JavaToolInstaller@0
+            inputs:
+              versionSpec: $(java_version)
+              jdkArchitectureOption: x64
+              jdkSourceOption: PreInstalled
+            displayName: 'Install Java'
+
           - script: |
               cd Backend
               ./mvnw.cmd test
             displayName: 'Test Backend'
 
   - stage: Deploy
-    dependsOn: Test
     displayName: Deploy Stage
+    dependsOn: Test
     jobs:
       - job: DeployJob
-        displayName: Deploy to Vercel & Azure
+        displayName: Deploy Frontend and Backend
         steps:
           - checkout: self
 
@@ -82,17 +90,12 @@ stages:
               vercel --prod --token $(VERCEL_TOKEN)
             displayName: 'Deploy Frontend to Vercel'
 
-          - task: DownloadSecureFile@1
-            name: downloadProfile
-            inputs:
-              secureFile: 'fringebooking-profile'
-
           - task: AzureWebApp@1
-            displayName: 'Deploy Backend to Azure App Service'
+            displayName: 'Deploy Backend to Azure'
             inputs:
               appType: 'webApp'
               appName: 'fringebooking'
               package: '$(System.DefaultWorkingDirectory)/Backend/target/*.jar'
               deployToSlotOrASE: false
               usePublishProfile: true
-              publishProfile: '$(downloadProfile.secureFilePath)'
+              publishProfile: 'fringebooking-profile'
