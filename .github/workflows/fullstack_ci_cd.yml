@@ -82,9 +82,17 @@ stages:
               vercel --prod --token $(VERCEL_TOKEN)
             displayName: 'Deploy Frontend to Vercel'
 
-          - task: AzureWebApp@1
+          - task: DownloadSecureFile@1
+            name: downloadProfile
             inputs:
-              azureSubscription: 'YOUR-SERVICE-CONNECTION-NAME'
+              secureFile: 'fringebooking-profile'
+
+          - task: AzureWebApp@1
+            displayName: 'Deploy Backend to Azure App Service'
+            inputs:
+              appType: 'webApp'
               appName: 'fringebooking'
               package: '$(System.DefaultWorkingDirectory)/Backend/target/*.jar'
-            displayName: 'Deploy Backend to Azure App Service'
+              deployToSlotOrASE: false
+              usePublishProfile: true
+              publishProfile: '$(downloadProfile.secureFilePath)'
