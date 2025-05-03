@@ -1,5 +1,5 @@
 {
-  "name": "fringe-booking",
+  "name": "fringe-booking-project",
   "builds": [
     {
       "src": "package.json",
