@@ -7,28 +7,33 @@ import Register from "./Register";
 import UserDashboard from "./UserDashboard";
 import AdminDashboard from "./AdminDashboard";
 import axios from "axios";
+import UserDetails from "../components/UserDetails";
 
 const Home = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [isLoginClicked, setIsLoginClicked] = useState(false);
   const [isRegisterClicked, setIsRegisterClicked] = useState(false);
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [isAdminLogged, setIsAdminLogged] = useState(false);
   const [usersData, setUsersData] = useState([]);
+  const [isProfileClick, setIsProfileClick] = useState(false);
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:8081/user");
+      const res = await axios.get("http://localhost:8081/user/getAllUsers");
       setUsersData(res.data);
     } catch (err) {
       console.log("Error fetching users:", err);
     }
   };
-  const handleLoginClick = () => {
+  const handleLoginClick = (e) => {
+    e.preventDefault()
+    console.log("hii")
     setIsLoginClicked(true);
     setIsRegisterClicked(false);
     setIsUserLogged(false);
     setIsAdminLogged(false);
+    setIsProfileClick(false);
   };
 
   const handleLogin = (loginData) => {
@@ -39,6 +44,8 @@ const Home = () => {
     }
 
     const user = usersData.find((u) => u.email === loginData.email);
+    localStorage.setItem("userDetails", JSON.stringify(user));
+
     if (!user) {
       alert("User not registered.");
       return;
@@ -76,10 +83,13 @@ const Home = () => {
     }
 
     try {
-      const result = await axios.post("http://localhost:8081/user", formData);
+      const result = await axios.post(
+        "http://localhost:8081/user/register",
+        formData
+      );
       if (
         (result.status === 200 || result.status === 201) &&
-        result.data.email != "admin@gmail.com"
+        result.data.email !== "admin@gmail.com"
       ) {
         fetchUsers();
         setIsUserLogged(true);
@@ -106,12 +116,20 @@ const Home = () => {
     }
   }, []);
 
+  function handleProfileClick() {
+    console.log("my fring clicked");
+    setIsProfileClick(true);
+    setIsUserLogged(true);
+    setIsLoginClicked(false);
+    setIsRegisterClicked(false);
+  }
   function handleLogoutClick() {
     setIsUserLogged(false);
     setIsAdminLogged(false);
     setIsLoginClicked(false);
     setIsRegisterClicked(false);
     localStorage.removeItem("role");
+    localStorage.removeItem("userDetails");
     console.log("Logout successful");
   }
 
@@ -120,15 +138,16 @@ const Home = () => {
       <div style={{ margin: 0, padding: 0 }}>
         <PageHeader
           onLoginClick={handleLoginClick}
-          onLogoutClick={handleLogoutClick}
+          onProfileClick={handleProfileClick}
           isAdminLogged={isAdminLogged}
           isUserLogged={isUserLogged}
         />
       </div>
       {isLoginClicked && <Login handleLogin={handleLogin} />}
       {isRegisterClicked && <Register handleRegister={handleRegister} />}
-      {isUserLogged && <UserDashboard />}
-      {isAdminLogged && <AdminDashboard />}
+      {isUserLogged && !isProfileClick && <UserDashboard />}
+      {isAdminLogged && !isProfileClick && <AdminDashboard />}
+      {isProfileClick && <UserDetails />}
     </>
   );
 };

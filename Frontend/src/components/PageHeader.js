@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaTicketAlt } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
 import "../styles/pagetop.css";
 
 const PageHeader = ({
   onLoginClick,
-  onLogoutClick,
+  onProfileClick,
   isAdminLogged,
   isUserLogged,
 }) => {
+  useEffect(() => {
+    console.log("inside page header", isUserLogged);
+  }, [isUserLogged]);
   return (
     <header role="banner">
       <div className="banner">
@@ -64,14 +67,7 @@ const PageHeader = ({
             </span>
           </a>
 
-          <a
-            className="a"
-            href="/"
-            onClick={(e) => {
-              e.preventDefault();
-              onLoginClick();
-            }}
-          >
+          <a className="a" href="" onClick={(e) => e.preventDefault()}>
             <img
               alt="MyFringe"
               src="https://d2cudhp9dwbqkd.cloudfront.net/release-20250307/assets/header/profile-eb465928.svg"
@@ -82,12 +78,16 @@ const PageHeader = ({
               <span
                 data-visible="desktop"
                 className="span"
-                onClick={onLogoutClick}
+                onClick={onProfileClick}
               >
-                Logout
+                My Fringe
               </span>
             ) : (
-              <span data-visible="desktop" className="span">
+              <span
+                data-visible="desktop"
+                className="span"
+                onClick={onLoginClick}
+              >
                 Log In
               </span>
             )}
