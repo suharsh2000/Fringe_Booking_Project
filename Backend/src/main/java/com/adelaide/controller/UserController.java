@@ -16,7 +16,7 @@ public class UserController {
     @Autowired
     private UserService service;
 
-    @PostMapping()
+    @PostMapping("/register")
     private UserDto saveUser(@RequestBody UserDto userDto) {
         return service.addUser(userDto);
     }
@@ -27,8 +27,12 @@ public class UserController {
     }
 
 
-    @GetMapping()
+    @GetMapping("/getAllUsers")
     private List<UserDto> getAllUsers(){
         return service.getAllUsers();
+    }
+    @PutMapping("/UpdateUser")
+    private UserDto updateUser(@RequestBody UserDto userDto){
+        return service.UpdateUserByDetails(userDto);
     }
 }

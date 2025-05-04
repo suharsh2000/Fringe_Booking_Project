@@ -1,10 +1,10 @@
 package com.adelaide.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+@Setter
+@Getter
 @Entity
 @Data
 @NoArgsConstructor
@@ -14,9 +14,6 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String firstname;
-    private String lastname;
-    private String country;
 
     public int getId() {
         return id;
@@ -24,6 +21,14 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getFirstname() {
@@ -40,6 +45,30 @@ public class User {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public String getCountry() {
@@ -66,6 +95,13 @@ public class User {
         this.password = password;
     }
 
+    private String title;
+    private String firstname;
+    private String lastname;
+    private String dob;
+    private String gender;
+    private String mobile;
+    private String country;
     private String email;
     private String password;
 }
