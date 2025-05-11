@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const UserDetails = () => {
+const UserDetails = ({handleSignOut}) => {
   const [isUpdateClick, setIsUpdateClick] = useState(false);
   const [userDetails, setUserDetails] = useState({
     title: "",
@@ -65,7 +65,7 @@ const UserDetails = () => {
             <h1 className="text-center">Account Settings</h1>
           </div>
 
-          <div className="container my-4">
+          <div className="container my-4" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
             <div className="card shadow p-4" style={{ width: "100%" }}>
               <div>
                 <h3>{userDetails.firstname + " " + userDetails.lastname}</h3>
@@ -84,6 +84,9 @@ const UserDetails = () => {
                   Update details & Password
                 </a>
               </div>
+            </div>
+            <div style={{ margin: '10px' }}>
+              <input type="button" value="Sign Out" onClick={handleSignOut} style={{ backgroundColor: 'skyblue', borderRadius: '10px', padding: '10px', borderColor: 'white' }} />
             </div>
           </div>
         </div>

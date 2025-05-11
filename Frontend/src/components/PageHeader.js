@@ -7,11 +7,20 @@ const PageHeader = ({
   onLoginClick,
   onProfileClick,
   isAdminLogged,
-  isUserLogged,
+  isUserLogged, getAllShows,getInvolved
 }) => {
   useEffect(() => {
     console.log("inside page header", isUserLogged);
   }, [isUserLogged]);
+  function handleGetAllShows(e) {
+    e.preventDefault()
+    getAllShows()
+  }
+  function handleGetInvolved(e){
+     e.preventDefault()
+     getInvolved()
+     console.log("Get involved clicked")
+  }
   return (
     <header role="banner">
       <div className="banner">
@@ -117,7 +126,10 @@ const PageHeader = ({
             <a className="tags" href="/">
               Info
             </a>
-            <a className="tags" href="/">
+            <a className="tags" href="/" onClick={handleGetInvolved}>
+              Get Involved
+            </a>
+            <a className="tags" href="/" onClick={handleGetAllShows}>
               Fringe Feed
             </a>
             <a className="tags" href="/">

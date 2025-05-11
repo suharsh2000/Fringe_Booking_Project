@@ -8,6 +8,7 @@ import UserDashboard from "./UserDashboard";
 import AdminDashboard from "./AdminDashboard";
 import axios from "axios";
 import UserDetails from "../components/UserDetails";
+import ShowsDashboard from "../components/ShowDashboard";
 
 const Home = () => {
   // const navigate = useNavigate();
@@ -17,6 +18,8 @@ const Home = () => {
   const [isAdminLogged, setIsAdminLogged] = useState(false);
   const [usersData, setUsersData] = useState([]);
   const [isProfileClick, setIsProfileClick] = useState(false);
+  const [isAllShowsVisible, setIsAllShowsVisible] = useState(true)
+  const[isGetInvolvedClicked,setIsGetInvolvedClicked]=useState(false)
 
   const fetchUsers = async () => {
     try {
@@ -91,6 +94,9 @@ const Home = () => {
         (result.status === 200 || result.status === 201) &&
         result.data.email !== "admin@gmail.com"
       ) {
+        localStorage.setItem("role", "user");
+        localStorage.setItem("userDetails", JSON.stringify(result.data));
+        console.log("user registered")
         fetchUsers();
         setIsUserLogged(true);
         setIsLoginClicked(false);
@@ -99,7 +105,7 @@ const Home = () => {
         fetchUsers();
         setIsLoginClicked(false);
         setIsRegisterClicked(false);
-        setIsUserLogged(false);
+        // setIsUserLogged(false);
         setIsAdminLogged(false);
       }
     } catch (err) {
@@ -118,21 +124,29 @@ const Home = () => {
 
   function handleProfileClick() {
     console.log("my fring clicked");
-    setIsProfileClick(true);
+    setIsProfileClick(!isProfileClick);
     setIsUserLogged(true);
     setIsLoginClicked(false);
     setIsRegisterClicked(false);
   }
-  function handleLogoutClick() {
+  function handleSignOut() {
     setIsUserLogged(false);
     setIsAdminLogged(false);
     setIsLoginClicked(false);
     setIsRegisterClicked(false);
-    localStorage.removeItem("role");
-    localStorage.removeItem("userDetails");
+    setIsProfileClick(false)
+    localStorage.clear();
     console.log("Logout successful");
   }
-
+  function getInvolved(){
+setIsGetInvolvedClicked(true)
+setIsAllShowsVisible(false)
+  }
+  function getAllShows() {
+    setIsAllShowsVisible(true)
+    setIsGetInvolvedClicked(false)
+    console.log("hi")
+  }
   return (
     <>
       <div style={{ margin: 0, padding: 0 }}>
@@ -141,13 +155,15 @@ const Home = () => {
           onProfileClick={handleProfileClick}
           isAdminLogged={isAdminLogged}
           isUserLogged={isUserLogged}
+          getAllShows={getAllShows}
+          getInvolved={getInvolved}
         />
       </div>
       {isLoginClicked && <Login handleLogin={handleLogin} />}
       {isRegisterClicked && <Register handleRegister={handleRegister} />}
-      {isUserLogged && !isProfileClick && <UserDashboard />}
-      {isAdminLogged && !isProfileClick && <AdminDashboard />}
-      {isProfileClick && <UserDetails />}
+      {isUserLogged && !isProfileClick && <UserDashboard isGetInvolvedClicked={isGetInvolvedClicked} isAllShowsVisible={isAllShowsVisible} />}
+      {isAdminLogged && !isProfileClick && <AdminDashboard  isAllShowsVisible={isAllShowsVisible} isGetInvolvedClicked={isGetInvolvedClicked}/>}
+      {isProfileClick && <UserDetails handleSignOut={handleSignOut} />}
     </>
   );
 };
