@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -61,19 +62,20 @@ public class UserServiceImpl implements UserService {
             user.setPassword(userDto.getPassword());
         }
 
-        if (!user.getDob().equals(userDto.getDob())) {
+        if (userDto.getDob() != null && !Objects.equals(user.getDob(), userDto.getDob())) {
             user.setDob(userDto.getDob());
         }
 
-        if (!user.getGender().equals(userDto.getGender())) {
+
+        if (user.getGender()!=null&&!user.getGender().equals(userDto.getGender())) {
             user.setGender(userDto.getGender());
         }
 
-        if (!user.getMobile().equals(userDto.getMobile())) {
+        if (user.getMobile()!=null&&!user.getMobile().equals(userDto.getMobile())) {
             user.setMobile(userDto.getMobile());
         }
 
-        if (!user.getTitle().equals(userDto.getTitle())) {
+        if (user.getTitle()!=null&&!user.getTitle().equals(userDto.getTitle())) {
             user.setTitle(userDto.getTitle());
         }
         repo.save(user);

@@ -3,6 +3,8 @@ package com.adelaide.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Setter
 @Getter
 @Entity
@@ -14,6 +16,15 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String title;
+    private String firstname;
+    private String lastname;
+    private String dob;
+    private String gender;
+    private String mobile;
+    private String country;
+    private String email;
+    private String password;
 
     public int getId() {
         return id;
@@ -95,13 +106,5 @@ public class User {
         this.password = password;
     }
 
-    private String title;
-    private String firstname;
-    private String lastname;
-    private String dob;
-    private String gender;
-    private String mobile;
-    private String country;
-    private String email;
-    private String password;
+
 }
