@@ -48,7 +48,7 @@ const UserDetails = ({handleSignOut}) => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     const result = await axios.put(
-      "http://localhost:8081/user/UpdateUser",
+      `${process.env.REACT_APP_API_BASE_URL}/user/UpdateUser`,
       userDetails
     );
     if (result.status == 200) {

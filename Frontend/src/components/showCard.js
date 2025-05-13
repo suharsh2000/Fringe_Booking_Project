@@ -39,7 +39,7 @@ const ShowCard = ({ show, getShows, isGetInvolvedClicked }) => {
 
     try {
       // Make sure the URL is correct
-      const result = await axios.delete(`http://localhost:8081/show/deleteShow/${show.id}`);
+      const result = await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/show/deleteShow/${show.id}`);
       console.log("Delete result status", result.status);
       getShows()
     } catch (error) {

@@ -9,7 +9,8 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000",
+                           "https://fringe-booking-project-dpx3ik8hj-suharshs-projects-721d5590.vercel.app")
 @RestController
 @RequestMapping("/user")
 public class UserController {

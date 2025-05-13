@@ -39,7 +39,7 @@ const AddShowForm = () => {
     console.log(formData);
 
     try {
-      const result = await axios.post('http://localhost:8081/show/addShow', formData);
+      const result = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/show/addShow`, formData);
       if (result.status = 200) {
         console.log(result.data)
         alert('Show added successfully!');

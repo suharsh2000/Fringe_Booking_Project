@@ -6,7 +6,7 @@ const ShowsDashboard = ({ isAddShowClicked, isGetInvolvedClicked }) => {
     const [shows, setShows] = useState([]);
     async function getShows() {
         try {
-            const result = await axios.get("http://localhost:8081/show/getAllShows");
+            const result = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/show/getAllShows`);
             if (result.status == 200) {
                 setShows(result.data)
                 const userShows = result.data.filter(show => show.status == "APPROVED")
