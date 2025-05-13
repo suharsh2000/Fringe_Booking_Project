@@ -32,9 +32,9 @@ public class UserController {
         return service.getAllUsers();
     }
 
-@RestController
-@RequestMapping("/api")
-public class HealthCheckController {
+    @RestController
+    @RequestMapping("/api")
+    public class HealthCheckController {
     @GetMapping("/check")
     public String check() {
         return "Backend is running!";
