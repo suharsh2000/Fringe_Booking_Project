@@ -33,12 +33,14 @@ public class UserController {
     }
 
     @RestController
-    @RequestMapping("/api")
-    public class HealthCheckController {
-    @GetMapping("/check")
-    public String check() {
-        return "Backend is running!";
+    public class HealthController {
+
+    @GetMapping("/health")
+    public ResponseEntity<String> healthCheck() {
+        return ResponseEntity.ok("Healthy");
     }
+}
+
 }
     @PutMapping("/UpdateUser")
     private UserDto updateUser(@RequestBody UserDto userDto){
