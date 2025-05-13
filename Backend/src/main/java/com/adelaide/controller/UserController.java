@@ -32,7 +32,8 @@ public class UserController {
         return service.getAllUsers();
     }
 
-    @RestController
+@RestController
+@RequestMapping("/api")
 public class HealthCheckController {
     @GetMapping("/check")
     public String check() {
