@@ -32,20 +32,12 @@ public class UserController {
         return service.getAllUsers();
     }
 
-    @RestController
-    public class HealthController {
-
-    @GetMapping("/health")
-    public ResponseEntity<String> healthCheck() {
-        return ResponseEntity.ok("Healthy");
-    }
-}
+    
 
 
     @PutMapping("/UpdateUser")
     private UserDto updateUser(@RequestBody UserDto userDto){
         return service.UpdateUserByDetails(userDto);
     }
-
 
 }
