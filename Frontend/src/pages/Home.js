@@ -87,7 +87,7 @@ const Home = () => {
 
     try {
       const result = await axios.post(
-        "http://localhost:8081/user/register",
+        `${process.env.REACT_APP_API_BASE_URL}/user/register`,
         formData
       );
       if (
