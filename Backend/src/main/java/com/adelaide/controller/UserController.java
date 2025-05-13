@@ -41,9 +41,11 @@ public class UserController {
     }
 }
 
-}
+
     @PutMapping("/UpdateUser")
     private UserDto updateUser(@RequestBody UserDto userDto){
         return service.UpdateUserByDetails(userDto);
     }
+
+
 }
