@@ -9,14 +9,14 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService service;
 
-    @PostMapping()
+    @PostMapping("/register")
     private UserDto saveUser(@RequestBody UserDto userDto) {
         return service.addUser(userDto);
     }
@@ -27,7 +27,7 @@ public class UserController {
     }
 
 
-    @GetMapping()
+    @GetMapping("/getAllUsers")
     private List<UserDto> getAllUsers(){
         return service.getAllUsers();
     }
@@ -40,4 +40,8 @@ public class HealthCheckController {
         return "Backend is running!";
     }
 }
+    @PutMapping("/UpdateUser")
+    private UserDto updateUser(@RequestBody UserDto userDto){
+        return service.UpdateUserByDetails(userDto);
+    }
 }
