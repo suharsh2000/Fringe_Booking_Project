@@ -23,7 +23,7 @@ const Home = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:8081/user/getAllUsers");
+      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/user/getAllUsers`);
       setUsersData(res.data);
     } catch (err) {
       console.log("Error fetching users:", err);
