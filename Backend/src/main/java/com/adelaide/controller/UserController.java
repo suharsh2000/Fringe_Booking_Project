@@ -31,4 +31,12 @@ public class UserController {
     private List<UserDto> getAllUsers(){
         return service.getAllUsers();
     }
+
+    @RestController
+public class HealthCheckController {
+    @GetMapping("/check")
+    public String check() {
+        return "Backend is running!";
+    }
+}
 }
