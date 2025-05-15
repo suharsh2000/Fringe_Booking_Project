@@ -34,32 +34,32 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-       
+
         <dependency>
-    <groupId>io.netty</groupId>
-    <artifactId>netty-common</artifactId>
-    <version>4.1.101.Final</version>
-</dependency>
-<dependency>
-    <groupId>io.netty</groupId>
-    <artifactId>netty-codec</artifactId>
-    <version>4.1.101.Final</version>
-</dependency>
-<dependency>
-    <groupId>io.netty</groupId>
-    <artifactId>netty-handler</artifactId>
-    <version>4.1.101.Final</version>
-</dependency>
-<dependency>
-    <groupId>io.netty</groupId>
-    <artifactId>netty-handler-proxy</artifactId>
-    <version>4.1.101.Final</version>
-</dependency>
-<dependency>
-    <groupId>io.netty</groupId>
-    <artifactId>netty-codec-http2</artifactId>
-    <version>4.1.101.Final</version>
-</dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-common</artifactId>
+            <version>4.1.101.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec</artifactId>
+            <version>4.1.101.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-handler</artifactId>
+            <version>4.1.101.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-handler-proxy</artifactId>
+            <version>4.1.101.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec-http2</artifactId>
+            <version>4.1.101.Final</version>
+        </dependency>
 
         <!-- Spring Boot Actuator -->
         <dependency>
@@ -129,6 +129,24 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <!-- Azure Web App Maven Plugin -->
+            <plugin>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-webapp-maven-plugin</artifactId>
+                <version>2.14.1</version>
+                <configuration>
+                    <resourceGroup>fringe_booking</resourceGroup>
+                    <appName>fringebooking</appName>
+                    <region>australiaeast</region>
+                    <pricingTier>P1v2</pricingTier>
+                    <runtime>
+                        <os>linux</os>
+                        <javaVersion>Java 17</javaVersion>
+                        <webContainer>Java SE</webContainer>
+                    </runtime>
+                </configuration>
             </plugin>
         </plugins>
     </build>
