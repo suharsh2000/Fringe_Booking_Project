@@ -1,5 +1,0 @@
-# Created at 2025-05-16T00:48:06.922
-Boot Manifest-JAR contains absolute paths in classpath 'D:\sem_4\devops\Fringe_Booking_Project\Backend\target\test-classes'
-Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
-'other' has different root
-
