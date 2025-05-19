@@ -23,7 +23,7 @@ const Home = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:8081/user/getAllUsers");
+      const res = await axios.get("https://fringe-booking-project.vercel.app/user/getAllUsers");
       setUsersData(res.data);
     } catch (err) {
       console.log("Error fetching users:", err);
@@ -87,7 +87,7 @@ const Home = () => {
 
     try {
       const result = await axios.post(
-        "http://localhost:8081/user/register",
+        "https://fringe-booking-project.vercel.app/user/register",
         formData
       );
       if (

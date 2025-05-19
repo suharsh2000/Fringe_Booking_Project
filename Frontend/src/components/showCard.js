@@ -39,7 +39,7 @@ const ShowCard = ({ show, getShows, isGetInvolvedClicked }) => {
 
     try {
       // Make sure the URL is correct
-      const result = await axios.delete(`http://localhost:8081/show/deleteShow/${show.id}`);
+      const result = await axios.delete(`https://fringe-booking-project.vercel.app/show/deleteShow/${show.id}`);
       console.log("Delete result status", result.status);
       getShows()
     } catch (error) {
@@ -68,7 +68,7 @@ const ShowCard = ({ show, getShows, isGetInvolvedClicked }) => {
 
     try {
       console.log("Sending data:", updatedData);
-      const result = await axios.put(`http://localhost:8081/show/updateShowStatus`, updatedData);
+      const result = await axios.put(`https://fringe-booking-project.vercel.app/show/updateShowStatus`, updatedData);
       console.log("Approve result status", result.status);
       alert("Show approved successfully!");
       getShows();
