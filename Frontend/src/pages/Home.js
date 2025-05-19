@@ -91,7 +91,7 @@ const Home = () => {
 
     try {
       const result = await axios.post(
-        "adalaide-backend-1747617833788.azurewebsites.net/user/register",
+        "https://adalaide-backend-1747617833788.azurewebsites.net/user/register",
         formData
       );
       if (
