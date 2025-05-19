@@ -22,13 +22,17 @@ const Home = () => {
   const[isGetInvolvedClicked,setIsGetInvolvedClicked]=useState(false)
 
   const fetchUsers = async () => {
-    try {
-      const res = await axios.get("https://fringe-booking-project.vercel.app/user/getAllUsers");
-      setUsersData(res.data);
-    } catch (err) {
-      console.log("Error fetching users:", err);
-    }
-  };
+  try {
+    const res = await axios.get("https://fringe-booking-project.vercel.app/user/getAllUsers");
+    console.log("Fetched users:", res.data); // ✅ Debug log
+
+    // Fix here: access the actual array
+    setUsersData(Array.isArray(res.data) ? res.data : res.data.users || []);
+  } catch (err) {
+    console.log("Error fetching users:", err);
+  }
+};
+
   const handleLoginClick = (e) => {
     e.preventDefault()
     console.log("hii")
