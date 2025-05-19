@@ -91,7 +91,7 @@ const Home = () => {
 
     try {
       const result = await axios.post(
-        "https://fringebooking.azurewebsites.net/user/register",
+        "adalaide-backend-1747617833788.azurewebsites.net/user/register",
         formData
       );
       if (
