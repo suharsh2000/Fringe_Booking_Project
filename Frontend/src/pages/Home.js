@@ -23,7 +23,7 @@ const Home = () => {
 
   const fetchUsers = async () => {
   try {
-    const res = await axios.get("https://adalaide-backend-1747617833788.azurewebsites.net/user/getAllUsers");
+    const res = await axios.get("https://fringe-booking.vercel.app/user/getAllUsers");
     console.log("Fetched users:", res.data); // ✅ Debug log
 
     // Fix here: access the actual array
@@ -91,7 +91,7 @@ const Home = () => {
 
     try {
       const result = await axios.post(
-        "https://adalaide-backend-1747617833788.azurewebsites.net/user/register",
+        "https://fringe-booking.vercel.app/user/register",
         formData
       );
       if (
