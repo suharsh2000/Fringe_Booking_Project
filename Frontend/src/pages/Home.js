@@ -87,7 +87,7 @@ const Home = () => {
 
     try {
       const result = await axios.post(
-        "https://fringe-booking-project.vercel.app/user/register",
+        "https://fringebooking.azurewebsites.net/user/register",
         formData
       );
       if (
