@@ -39,7 +39,7 @@ const AddShowForm = () => {
     console.log(formData);
 
     try {
-      const result = await axios.post('https://fringe-booking-project.vercel.app/show/addShow', formData);
+      const result = await axios.post('https://fringe-booking.vercel.app/show/addShow', formData);
       if (result.status = 200) {
         console.log(result.data)
         alert('Show added successfully!');
