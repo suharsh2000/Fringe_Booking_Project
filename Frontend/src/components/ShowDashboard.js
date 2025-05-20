@@ -6,7 +6,7 @@ const ShowsDashboard = ({ isAddShowClicked, isGetInvolvedClicked }) => {
     const [shows, setShows] = useState([]);
     async function getShows() {
         try {
-            const result = await axios.get("https://fringe-booking.vercel.app/show/getAllShows");
+            const result = await axios.get("https://adalaide-backend-1747617833788.azurewebsites.net/show/getAllShows");
             if (result.status == 200) {
                 setShows(result.data)
                 const userShows = result.data.filter(show => show.status == "APPROVED")
