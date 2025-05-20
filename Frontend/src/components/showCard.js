@@ -68,7 +68,7 @@ const ShowCard = ({ show, getShows, isGetInvolvedClicked }) => {
 
     try {
       console.log("Sending data:", updatedData);
-      const result = await axios.put(`https://fringe-booking.vercel.app/show/updateShowStatus`, updatedData);
+      const result = await axios.put(`https://adalaide-backend-1747617833788.azurewebsites.net/show/updateShowStatus`, updatedData);
       console.log("Approve result status", result.status);
       alert("Show approved successfully!");
       getShows();
