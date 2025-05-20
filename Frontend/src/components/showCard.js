@@ -39,7 +39,7 @@ const ShowCard = ({ show, getShows, isGetInvolvedClicked }) => {
 
     try {
       // Make sure the URL is correct
-      const result = await axios.delete(`https://fringe-booking-project.vercel.app/show/deleteShow/${show.id}`);
+      const result = await axios.delete(`https://adalaide-backend-1747617833788.azurewebsites.net/show/deleteShow/${show.id}`);
       console.log("Delete result status", result.status);
       getShows()
     } catch (error) {
