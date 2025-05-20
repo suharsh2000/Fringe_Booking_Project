@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://fringe-booking.vercel.app")
 @RestController
 @RequestMapping("/show")
 public class ShowController {
