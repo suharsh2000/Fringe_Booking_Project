@@ -2,7 +2,7 @@
   "name": "adailede-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://adalaide-backend-1747617833788.azurewebsites.net/",
+  "proxy": "https://adalaide-backend-1747617833788.azurewebsites.net",
   "dependencies": {
     "axios": "^1.8.4",
     "bootstrap": "^5.3.3",
