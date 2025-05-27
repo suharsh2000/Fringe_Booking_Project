@@ -26,7 +26,6 @@ const Home = () => {
     const res = await axios.get("https://adalaide-backend-1747617833788.azurewebsites.net/user/getAllUsers");
     console.log("Fetched users:", res.data); // ✅ Debug log
 
-    // Fix here: access the actual array
     setUsersData(Array.isArray(res.data) ? res.data : res.data.users || []);
   } catch (err) {
     console.log("Error fetching users:", err);
