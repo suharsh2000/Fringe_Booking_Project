@@ -3,6 +3,8 @@ package com.adelaide.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -15,15 +17,13 @@ public class Show {
     private String title;
     private String description;
     @Lob
-
-
     private String imageUrl;
     private String startDate;
     private String endDate;
     private String time;
     private String location;
     private String noOfSeats;
-    private String status ;
+    private String status;
     private int userId;
 
     public int getUserId() {
