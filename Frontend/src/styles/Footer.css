@@ -1,0 +1,174 @@
+.footer {
+    background-color: #2d2d2d;
+    color: white;
+    padding: 40px 20px 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  .footer-acknowledgement {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+  
+  .footer-divider {
+    border-top: 1px solid #666;
+    margin: 30px auto;
+    width: 90%;
+  }
+  
+  /* FULL-WIDTH PARTNER LOGO BANNER */
+  .footer-logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px 0;
+    margin: 0 auto 40px;
+    max-width: 1150px;
+  }
+  
+  .footer-logos img {
+    height: 178px;
+    width: 1152px;
+    display: none;
+    filter: brightness(0) invert(1);
+    object-fit: contain;
+  }
+  
+  .footer-divider{
+
+    border-top: 3px solid #666;
+    margin-top: 30px auto;
+    width: 90%;
+  }
+
+
+
+  /* GRID: QUICK LINKS LEFT + SOCIAL/APP RIGHT */
+  .footer-links-section {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+    max-width: 1150px;
+    margin: 0 auto 40px;
+    text-align: left;
+  }
+  
+  /* QUICK LINKS */
+  .quick-links {
+    min-width: 220px;
+    flex: 1;
+  }
+  
+  .quick-links h4 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: white;
+  }
+  
+  .quick-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .quick-links li {
+    margin: 6px 0;
+  }
+  
+  .quick-links a {
+    color: #ccc;
+    text-decoration: none;
+  }
+  
+  .quick-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* SOCIAL + APP COLUMN */
+  .footer-social-app {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    min-width: 220px;
+  }
+  
+  .footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-social a {
+    color: black;
+    background-color: #6ee43c;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+  }
+  
+  /* APP DOWNLOAD BOX */
+  .app-download-box {
+    background-color: #6ee43c;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 280px;
+    width: 100%;
+  }
+  
+  .app-download-box p {
+    color: black;
+    margin: 5px 0;
+    font-weight: 600;
+  }
+  
+  .app-description {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  
+  .app-icons img {
+    height: 35px;
+    margin: 5px;
+    object-fit: contain;
+  }
+  
+  /* FOOTER COPYRIGHT */
+  .footer-bottom {
+    padding: 20px 0;
+    border-top: 1px solid #444;
+    font-size: 0.85rem;
+    color: #aaa;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-links-section {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .footer-social-app {
+      align-items: center;
+    }
+  
+    .footer-social {
+      justify-content: center;
+    }
+  
+    .quick-links {
+      text-align: center;
+    }
+  }
+  

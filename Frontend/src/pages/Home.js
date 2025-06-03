@@ -9,6 +9,8 @@ import AdminDashboard from "./AdminDashboard";
 import axios from "axios";
 import UserDetails from "../components/UserDetails";
 import ShowsDashboard from "../components/ShowDashboard";
+import Footer from "../components/Footer";
+
 
 const Home = () => {
   // const navigate = useNavigate();
@@ -167,6 +169,7 @@ setIsAllShowsVisible(false)
       {isUserLogged && !isProfileClick && <UserDashboard isGetInvolvedClicked={isGetInvolvedClicked} isAllShowsVisible={isAllShowsVisible} />}
       {isAdminLogged && !isProfileClick && <AdminDashboard  isAllShowsVisible={isAllShowsVisible} isGetInvolvedClicked={isGetInvolvedClicked}/>}
       {isProfileClick && <UserDetails handleSignOut={handleSignOut} />}
+      <Footer />
     </>
   );
 };
