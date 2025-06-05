@@ -10,6 +10,7 @@ import axios from "axios";
 import UserDetails from "../components/UserDetails";
 import ShowsDashboard from "../components/ShowDashboard";
 
+
 const Home = () => {
   // const navigate = useNavigate();
   const [isLoginClicked, setIsLoginClicked] = useState(false);
