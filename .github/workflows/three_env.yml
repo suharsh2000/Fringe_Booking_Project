@@ -70,6 +70,6 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ env.AZURE_APP_NAME }}
-          slot-name: ${{ github.ref_name == 'main' && 'Production' || github.ref_name == 'test' && 'test' || 'dev' }}
+          slot-name: ${{ github.ref_name == 'main' && 'Production' || github.ref_name }}
           package: '*.jar'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D15F7670D10542A2A23A6A3020627C97 }}
+          publish-profile: ${{ secrets[github.ref_name == 'main' && 'AZUREAPPSERVICE_PUBLISHPROFILE_PROD' || github.ref_name == 'test' && 'AZUREAPPSERVICE_PUBLISHPROFILE_TEST' || 'AZUREAPPSERVICE_PUBLISHPROFILE_DEV'] }}
