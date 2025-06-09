@@ -15,13 +15,6 @@ public class EmailController {
     @Autowired
     private EmailService emailService;
 
-    // DTO for request body
-    public static class BookingRequest {
-        public String email;
-        public String showId;
-        public String[] seats;
-    }
-
    
 
 
