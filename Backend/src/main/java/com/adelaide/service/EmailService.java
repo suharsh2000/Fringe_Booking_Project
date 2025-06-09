@@ -1,5 +1,9 @@
 package com.adelaide.service;
 
+
+import com.adelaide.dto.BookingDto;
+
 public interface EmailService {
-    void sendBookingConfirmation(String email, String showId, String[] seats);
+    void sendBookingConfirmation(BookingDto bookingRequest);
+    BookingDto getShowDetailsById(int id);
 }
