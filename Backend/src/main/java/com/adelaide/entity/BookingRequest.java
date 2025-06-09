@@ -1,21 +1,16 @@
 package com.adelaide.entity;
 
-<<<<<<< HEAD
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-=======
 import jakarta.persistence.*;
->>>>>>> ecba7f227647b59bb7805beb69e16864d23aa4fb
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-<<<<<<< HEAD
-=======
+
 import java.util.Arrays;
 
->>>>>>> ecba7f227647b59bb7805beb69e16864d23aa4fb
 @Entity
 @Data
 @Table(schema = "BookingDetails")
@@ -23,16 +18,12 @@ import java.util.Arrays;
 @NoArgsConstructor
 public class BookingRequest {
     @Id
-<<<<<<< HEAD
-=======
     @GeneratedValue(strategy = GenerationType.AUTO)
->>>>>>> ecba7f227647b59bb7805beb69e16864d23aa4fb
     private int id;
     private String email;
     private String showId;
     private String[] seats;
-<<<<<<< HEAD
-=======
+
 
     public int getId() {
         return id;
@@ -75,5 +66,4 @@ public class BookingRequest {
                 ", seats=" + Arrays.toString(seats) +
                 '}';
     }
->>>>>>> ecba7f227647b59bb7805beb69e16864d23aa4fb
 }
