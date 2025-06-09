@@ -3,11 +3,12 @@ import '../styles/adminDashboard.css';
 import AddShowForm from "../components/AddShow";
 import ShowsDashboard from "../components/ShowDashboard";
 
+
 const AdminDashboard = ({ isAllShowsVisible, isGetInvolvedClicked }) => {
   const [isAddShowClicked, setIsAddShowClicked] = useState(false);
 
 
-  const handleAddShow = (e) => {
+  const handleAddShow = (e) => { //
     e.preventDefault();
     setIsAddShowClicked(true);
   };
