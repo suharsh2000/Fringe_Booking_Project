@@ -2,7 +2,10 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+<<<<<<< HEAD
       <profile default="true" name="Default" enabled="true" />
+=======
+>>>>>>> ecba7f227647b59bb7805beb69e16864d23aa4fb
       <profile name="Annotation profile for adalaide-backend" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />

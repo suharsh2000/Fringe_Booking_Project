@@ -48,7 +48,7 @@ const UserDetails = ({handleSignOut}) => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     const result = await axios.put(
-      "http://localhost:8081/user/UpdateUser",
+      "https://adalaide-backend-1747617833788.azurewebsites.net/user/UpdateUser",
       userDetails
     );
     if (result.status == 200) {
