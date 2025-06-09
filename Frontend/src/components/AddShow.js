@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/show.css';
 
@@ -39,7 +39,7 @@ const AddShowForm = () => {
     console.log(formData);
 
     try {
-      const result = await axios.post('http://localhost:8081/show/addShow', formData);
+      const result = await axios.post('https://adalaide-backend-1747617833788.azurewebsites.net/show/addShow', formData);
       if (result.status = 200) {
         console.log(result.data)
         alert('Show added successfully!');
