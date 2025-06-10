@@ -47,11 +47,8 @@
   "version": "0.1.0",
   // Defines the project’s version number using semantic versioning (major.minor.patch). Initial version is 0.1.0.
   "private": true,
-<<<<<<< HEAD
   "proxy": "https://adalaide-backend-1747617833788.azurewebsites.net",
-=======
   // Indicates this package is private and won’t be published to npm. Prevents accidental publishing.
->>>>>>> dev
   "dependencies": {
     // Lists the project’s runtime dependencies, installed via npm and required for the application to run.
     "axios": "^1.8.4",
@@ -67,13 +64,9 @@
     "react-icons": "^5.5.0",
     // Includes React Icons, a library for including icon sets (e.g., Font Awesome) as React components, version 5.5.0 or compatible updates.
     "react-router-dom": "^6.15.0",
-<<<<<<< HEAD
     "react-scripts": "^5.0.1",
-=======
     // Includes React Router DOM, a library for client-side routing in React apps, version 6.15.0 or compatible updates.
-    "react-scripts": "5.0.1",
     // Includes react-scripts, a set of scripts and configurations for Create React App, pinned to version 5.0.1.
->>>>>>> dev
     "web-vitals": "^2.1.4"
     // Includes Web Vitals, a library for measuring performance metrics (e.g., CLS, FCP), version 2.1.4 or compatible updates.
   },
