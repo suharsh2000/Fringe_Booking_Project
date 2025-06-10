@@ -33,7 +33,7 @@ const Home = () => {
     }
   };
 
-  consthandleLoginClick = (e) => {
+  const handleLoginClick = (e) => {
     e.preventDefault()
     console.log("hii")
     setIsLoginClicked(true);
