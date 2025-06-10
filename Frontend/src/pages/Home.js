@@ -25,18 +25,6 @@ const Home = () => {
   const[isGetInvolvedClicked,setIsGetInvolvedClicked]=useState(false)
 
   const fetchUsers = async () => {
-<<<<<<< HEAD
-  try {
-    const res = await axios.get("https://adalaide-backend-1747617833788.azurewebsites.net/user/getAllUsers");
-    console.log("Fetched users:", res.data); // ✅ Debug log
-
-    setUsersData(Array.isArray(res.data) ? res.data : res.data.users || []);
-  } catch (err) {
-    console.log("Error fetching users:", err);
-  }
-};
-
-=======
     try {
       const res = await axios.get("https://adalaide-backend-1747617833788.azurewebsites.net/user/getAllUsers");
       setUsersData(res.data);
@@ -44,8 +32,8 @@ const Home = () => {
       console.log("Error fetching users:", err);
     }
   };
->>>>>>> dev
-  const handleLoginClick = (e) => {
+  
+  consthandleLoginClick = (e) => {
     e.preventDefault()
     console.log("hii")
     setIsLoginClicked(true);
