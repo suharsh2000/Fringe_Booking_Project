@@ -32,7 +32,7 @@ const Home = () => {
       console.log("Error fetching users:", err);
     }
   };
-  
+
   consthandleLoginClick = (e) => {
     e.preventDefault()
     console.log("hii")
