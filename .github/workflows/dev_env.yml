@@ -1,1 +1,68 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+name: Build, Test and Deploy Spring Boot App
 
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java version
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'microsoft'
+
+      - name: Build with Maven
+        run: mvn clean package
+        working-directory: Backend
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: java-app
+          path: Backend/target/*.jar  # use .war if that's what you're building
+
+  test:
+    runs-on: windows-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java version
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'microsoft'
+
+      - name: Run Tests with Maven
+        run: mvn test
+        working-directory: Backend
+
+  deploy:
+    runs-on: windows-latest
+    needs: [dev]
+    environment:
+      name: 'dev'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: java-app
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'adalaide-backend-1747617833788'
+          slot-name: 'dev'
+          package: '*.jar'  # use .war if that’s what you uploaded
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D15F7670D10542A2A23A6A3020627C97 }}
