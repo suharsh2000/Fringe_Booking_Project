@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
-      <module fileurl="file://$PROJECT_DIR$/.idea/Fringe_Booking_Project.iml" filepath="$PROJECT_DIR$/.idea/Fringe_Booking_Project.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/.idea/Adelade Fringe Web.iml" filepath="$PROJECT_DIR$/.idea/Adelade Fringe Web.iml" />
->>>>>>> ecba7f227647b59bb7805beb69e16864d23aa4fb
+      <module fileurl="file://$PROJECT_DIR$/.idea/Fringe_Booking_Project_dev.iml" filepath="$PROJECT_DIR$/.idea/Fringe_Booking_Project_dev.iml" />
     </modules>
   </component>
 </project>

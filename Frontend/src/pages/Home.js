@@ -32,6 +32,7 @@ const Home = () => {
       console.log("Error fetching users:", err);
     }
   };
+
   const handleLoginClick = (e) => {
     e.preventDefault()
     console.log("hii")

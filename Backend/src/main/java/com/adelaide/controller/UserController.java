@@ -9,7 +9,7 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-@CrossOrigin(origins = "https://fringe-booking.vercel.app")
+@CrossOrigin(origins =  "https://fringe-booking.vercel.app")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -25,6 +25,7 @@ public class UserController {
         email = URLDecoder.decode(email, StandardCharsets.UTF_8); // Decodes "%40" back to "@"
         return service.getUserByEmail(email);
     }
+
 
 
     @GetMapping("/getAllUsers")

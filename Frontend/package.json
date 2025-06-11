@@ -1,122 +1,42 @@
-//{
-//  "name": "adailede-frontend",
-//  "version": "0.1.0",
-//  "private": true,
-//  "dependencies": {
-//    "axios": "^1.8.4",
-//    "bootstrap": "^5.3.3",
-//    "react": "^18.2.0",
-//    "react-bootstrap": "^2.10.9",
-//    "react-dom": "^18.2.0",
-//    "react-icons": "^5.5.0",
-//    "react-router-dom": "^6.15.0",
-//    "react-scripts": "5.0.1",
-//    "web-vitals": "^2.1.4"
-//  },
-//  "scripts": {
-//    "start": "react-scripts start",
-//    "build": "react-scripts build",
-//    "test": "react-scripts test",
-//    "eject": "react-scripts eject"
-//  },
-//  "eslintConfig": {
-//    "extends": [
-//      "react-app",
-//      "react-app/jest"
-//    ]
-//  },
-//  "browserslist": {
-//    "production": [
-//      ">0.2%",
-//      "not dead",
-//      "not op_mini all"
-//    ],
-//    "development": [
-//      "last 1 chrome version",
-//      "last 1 firefox version",
-//      "last 1 safari version"
-//    ]
-//  }
-//}
-
-
 {
-  // Opening brace starts the JSON object for package.json, which defines the project’s metadata, dependencies, and scripts.
   "name": "adailede-frontend",
-  // Specifies the name of the project as "adailede-frontend". Must be unique if published to npm.
   "version": "0.1.0",
-  // Defines the project’s version number using semantic versioning (major.minor.patch). Initial version is 0.1.0.
   "private": true,
-  // Indicates this package is private and won’t be published to npm. Prevents accidental publishing.
+  "proxy": "https://adalaide-backend-1747617833788.azurewebsites.net",
   "dependencies": {
-    // Lists the project’s runtime dependencies, installed via npm and required for the application to run.
     "axios": "^1.8.4",
-    // Includes axios, a promise-based HTTP client for making API requests, version 1.8.4 or compatible minor/patch updates.
     "bootstrap": "^5.3.3",
-    // Includes Bootstrap, a popular CSS framework for responsive design, version 5.3.3 or compatible minor/patch updates.
     "react": "^18.2.0",
-    // Includes React, a JavaScript library for building user interfaces, version 18.2.0 or compatible minor/patch updates.
     "react-bootstrap": "^2.10.9",
-    // Includes React-Bootstrap, a library providing Bootstrap components as React components, version 2.10.9 or compatible updates.
     "react-dom": "^18.2.0",
-    // Includes React DOM, which handles rendering React components to the DOM, version 18.2.0 or compatible updates.
     "react-icons": "^5.5.0",
-    // Includes React Icons, a library for including icon sets (e.g., Font Awesome) as React components, version 5.5.0 or compatible updates.
+    "react-modal": "^3.16.3",
     "react-router-dom": "^6.15.0",
-    // Includes React Router DOM, a library for client-side routing in React apps, version 6.15.0 or compatible updates.
-    "react-scripts": "5.0.1",
-    // Includes react-scripts, a set of scripts and configurations for Create React App, pinned to version 5.0.1.
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
-    // Includes Web Vitals, a library for measuring performance metrics (e.g., CLS, FCP), version 2.1.4 or compatible updates.
   },
-  // Closes the dependencies section.
   "scripts": {
-    // Defines npm scripts for common tasks, executed via `npm run <script-name>`.
     "start": "react-scripts start",
-    // Runs the development server with hot reloading using Create React App’s start script.
     "build": "react-scripts build",
-    // Builds the app for production, creating an optimized bundle in the `build` folder.
     "test": "react-scripts test",
-    // Runs tests using Jest, as configured by Create React App, with watch mode in development.
     "eject": "react-scripts eject"
-    // Ejects the project from Create React App, exposing configuration files for customization (irreversible).
   },
-  // Closes the scripts section.
   "eslintConfig": {
-    // Configures ESLint, a tool for identifying and fixing code issues, specifically for this project.
     "extends": [
-      // Specifies which ESLint configurations to extend.
       "react-app",
-      // Extends the default ESLint rules provided by Create React App for React projects.
       "react-app/jest"
-      // Extends Jest-specific ESLint rules for testing, included with Create React App.
     ]
-    // Closes the extends array.
   },
-  // Closes the eslintConfig section.
   "browserslist": {
-    // Defines supported browsers for production and development builds, used by tools like Babel and Autoprefixer.
     "production": [
-      // Lists browser support for production builds.
       ">0.2%",
-      // Supports browsers with more than 0.2% global usage (based on caniuse.com data).
       "not dead",
-      // Excludes browsers no longer maintained (e.g., IE 10).
       "not op_mini all"
-      // Excludes Opera Mini, which has limited JavaScript support.
     ],
-    // Closes the production browsers list.
     "development": [
-      // Lists browser support for development builds (less strict for faster builds).
       "last 1 chrome version",
-      // Supports the latest version of Google Chrome.
       "last 1 firefox version",
-      // Supports the latest version of Mozilla Firefox.
       "last 1 safari version"
-      // Supports the latest version of Apple Safari.
     ]
-    // Closes the development browsers list.
   }
-  // Closes the browserslist section.
 }
-// Closes the package.json JSON object.
