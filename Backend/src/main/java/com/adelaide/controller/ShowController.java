@@ -14,6 +14,7 @@ public class ShowController {
     @Autowired
     private ShowService service;
 
+
     @PostMapping("/addShow")
     public ShowDto saveShow(@RequestBody ShowDto showDto) {
         return service.addShow(showDto);
@@ -26,6 +27,7 @@ public class ShowController {
     @GetMapping("/getAllShows")
     public List<ShowDto> getAll(){
         return service.getAllShows();
+        
     }
     @PutMapping("/updateShow")
     public ShowDto updateShow(@RequestBody ShowDto showDto){
